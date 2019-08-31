@@ -22,9 +22,8 @@ SDL_Window* gWindow = NULL;
 //The window renderer
 SDL_Renderer* gRenderer = NULL;
 
-//Walking animation
-const int WALKING_ANIMATION_FRAMES = 4;
-SDL_Rect gSpriteClips[WALKING_ANIMATION_FRAMES];
+//Scene sprites
+SDL_Rect gSpriteClips[4];
 LTexture* gSpriteSheetTexture;
 
 bool init()
@@ -55,8 +54,8 @@ bool init()
 		}
 		else
 		{
-			//Create vsynced renderer for window
-			gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+			//Create renderer for window
+			gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
 			if (gRenderer == NULL)
 			{
 				printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
@@ -78,44 +77,45 @@ bool init()
 		}
 	}
 	gSpriteSheetTexture = new LTexture(gRenderer);
-
-	return success; 
+	return success;
 }
 
 bool loadMedia()
 {
-
 	//Loading success flag
 	bool success = true;
 
-	//Load front alpha texture
-	if (!gSpriteSheetTexture->loadFromFile("Assets/foo.png"))
+	//Load sprite sheet texture
+	if (!gSpriteSheetTexture->loadFromFile("Assets/Tiles.png"))
 	{
-		printf("Failed to load front texture!\n");
+		printf("Failed to load sprite sheet texture!\n");
 		success = false;
 	}
 	else
 	{
-		//Set sprite clips
+		//Set top left sprite
 		gSpriteClips[0].x = 0;
 		gSpriteClips[0].y = 0;
-		gSpriteClips[0].w = 64;
-		gSpriteClips[0].h = 205;
+		gSpriteClips[0].w = 100;
+		gSpriteClips[0].h = 100;
 
-		gSpriteClips[1].x = 64;
+		//Set top right sprite
+		gSpriteClips[1].x = 100;
 		gSpriteClips[1].y = 0;
-		gSpriteClips[1].w = 64;
-		gSpriteClips[1].h = 205;
+		gSpriteClips[1].w = 100;
+		gSpriteClips[1].h = 100;
 
-		gSpriteClips[2].x = 128;
-		gSpriteClips[2].y = 0;
-		gSpriteClips[2].w = 64;
-		gSpriteClips[2].h = 205;
+		//Set bottom left sprite
+		gSpriteClips[2].x = 0;
+		gSpriteClips[2].y = 100;
+		gSpriteClips[2].w = 100;
+		gSpriteClips[2].h = 100;
 
-		gSpriteClips[3].x = 196;
-		gSpriteClips[3].y = 0;
-		gSpriteClips[3].w = 64;
-		gSpriteClips[3].h = 205;
+		//Set bottom right sprite
+		gSpriteClips[3].x = 100;
+		gSpriteClips[3].y = 100;
+		gSpriteClips[3].w = 100;
+		gSpriteClips[3].h = 100;
 	}
 
 	return success;
@@ -185,10 +185,6 @@ int main(int argc, char* args[])
 
 			//Event handler
 			SDL_Event e;
-			//Current animation frame
-			int frame = 0;
-
-
 			//While application is running
 			while (!quit)
 			{
@@ -201,24 +197,25 @@ int main(int argc, char* args[])
 						quit = true;
 					}
 				}
+
 				//Clear screen
 				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 				SDL_RenderClear(gRenderer);
-				//Render current frame
-				SDL_Rect* currentClip = &gSpriteClips[frame / 4];
-				gSpriteSheetTexture->render((SCREEN_WIDTH - currentClip->w) / 2, (SCREEN_HEIGHT - currentClip->h) / 2, currentClip);
+
+				//Render top left sprite
+				gSpriteSheetTexture->render(0, 0, &gSpriteClips[0]);
+
+				//Render top right sprite
+				gSpriteSheetTexture->render(SCREEN_WIDTH - gSpriteClips[1].w, 0, &gSpriteClips[1]);
+
+				//Render bottom left sprite
+				gSpriteSheetTexture->render(0, SCREEN_HEIGHT - gSpriteClips[2].h, &gSpriteClips[2]);
+
+				//Render bottom right sprite
+				gSpriteSheetTexture->render(SCREEN_WIDTH - gSpriteClips[3].w, SCREEN_HEIGHT - gSpriteClips[3].h, &gSpriteClips[3]);
 
 				//Update screen
 				SDL_RenderPresent(gRenderer);
-
-				//Go to next frame
-				++frame;
-
-				//Cycle animation
-				if (frame / 4 >= WALKING_ANIMATION_FRAMES)
-				{
-					frame = 0;
-				}
 			}
 		}
 	}

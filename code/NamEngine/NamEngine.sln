@@ -5,11 +5,6 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NamEngine", "NamEngine\NamEngine.vcxproj", "{0386EC16-3358-4727-A964-CE22526C7C66}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C7AB7C4E-141A-449E-9E33-57CBCFEF56E6}"
-	ProjectSection(SolutionItems) = preProject
-		NamEngine\01_hello_SDL.cpp = NamEngine\01_hello_SDL.cpp
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
