@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-17T02:35:20.106Z" agent="5.0 (Windows)" etag="goN6LK9tdpDb1ofiBDbi" version="13.10.0" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2021-04-17T02:55:59.824Z" agent="5.0 (Windows)" etag="gS_UJekk4VaDxdvVF753" version="13.10.0" type="github" pages="6">
   <diagram id="YeaQKbLMFFDkwzYKFkze" name="Page-1">
     <mxGraphModel dx="8197" dy="5240" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -369,7 +369,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="dZTY8O5AlewTThltYiFZ" name="Page-2">
-    <mxGraphModel dx="3537" dy="1035" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2330" dy="355" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="AdvRrq_eRsj3rZsmq_SG-0" />
         <mxCell id="AdvRrq_eRsj3rZsmq_SG-1" parent="AdvRrq_eRsj3rZsmq_SG-0" />
@@ -661,7 +661,7 @@
         <mxCell id="AdvRrq_eRsj3rZsmq_SG-128" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;" parent="AdvRrq_eRsj3rZsmq_SG-127" vertex="1">
           <mxGeometry width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="AdvRrq_eRsj3rZsmq_SG-129" value="Vai trò" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;overflow=hidden;" parent="AdvRrq_eRsj3rZsmq_SG-127" vertex="1">
+        <mxCell id="AdvRrq_eRsj3rZsmq_SG-129" value="Số tiết" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;overflow=hidden;" parent="AdvRrq_eRsj3rZsmq_SG-127" vertex="1">
           <mxGeometry x="60" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="AdvRrq_eRsj3rZsmq_SG-137" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERoneToMany;endFill=0;startArrow=ERmandOne;startFill=0;" parent="AdvRrq_eRsj3rZsmq_SG-1" source="AdvRrq_eRsj3rZsmq_SG-48" target="AdvRrq_eRsj3rZsmq_SG-121" edge="1">
